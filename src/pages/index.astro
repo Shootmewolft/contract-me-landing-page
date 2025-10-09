@@ -1,8 +1,18 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Hero from "@/components/sections/Hero.astro"
+import Layout from "../layouts/Layout.astro"
+import Why from "@/components/sections/Why.astro"
+import HowItWorks from "@/components/sections/HowItWorks.astro"
+import Choose from "@/components/sections/Choose.astro"
+import FAQ from "@/components/sections/FAQ.astro"
+import Form from "@/components/sections/Form.astro"
 ---
 
 <Layout>
-	<h2 class="text-red-500">gola</h2>
+  <Hero />
+  <Why />
+  <HowItWorks />
+  <Choose />
+  <FAQ />
+  <Form />
 </Layout>

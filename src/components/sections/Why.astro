@@ -1,0 +1,203 @@
+---
+import Image from "astro/components/Image.astro"
+
+const features = [
+  {
+    title: "Contratos claros en minutos",
+    description:
+      "Genera contratos sin errores, adaptados a tu operación, en menos de 3 minutos.",
+  },
+  {
+    title: "Legal design a tu favor",
+    description:
+      "Nuestros contratos no solo cumplen la ley colombiana; están diseñados para ser comprensibles, visuales y amigables, sin mayor juridicón.",
+  },
+  {
+    title: "Firma electrónica segura",
+    description:
+      "Tus contratos se firman digitalmente cumpliendo las normativas colombianas vigentes.",
+  },
+  {
+    title: "Validación de identidad y viabilidad financiera:",
+    description:
+      "Integra verificación en centrales de riesgo para tomar decisiones más seguras.",
+  },
+  {
+    title: "Gestión centralizada 24/7",
+    description:
+      "Crea, firma y accede a todos tus contratos desde un solo lugar.",
+  },
+  {
+    title: "Visibilidad y control total",
+    description:
+      "Registro visual del estado del inmueble, alertas automáticas y renovaciones y contratos activos en tu dashboard personalizado.",
+  },
+]
+---
+
+<section class="" id="why">
+  <header class="relative flex items-center gap-16">
+    <Image
+      src="/me.svg"
+      alt="Parte del logo de Contract Me"
+      class="top-0 -z-10 w-60 h-24 hidden lg:block"
+      width={1920}
+      height={1080}
+    />
+    <h2 class="text-3xl lg:text-5xl text-primary text-center font-bold w-full">
+      ¿Por qué elegir Contract Me?
+    </h2>
+  </header>
+
+  <div class="embla mt-12 overflow-hidden">
+    <div class="embla__viewport">
+      <div class="embla__container flex">
+        {
+          features.map((feature, index) => {
+            const COLORS = ["bg-primary", "bg-accent-200", "bg-secondary"]
+            const bgClass = COLORS[index % 3]
+            const textClass = index % 3 === 1 ? "text-primary" : "text-white"
+
+            return (
+              <div class="embla__slide flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-3">
+                <article
+                  class={`${bgClass} p-6 flex flex-col gap-4 rounded-4xl h-full`}
+                >
+                  <h3 class="bg-white text-secondary text-center w-full py-2 rounded-xl font-bold text-base px-4">
+                    {feature.title}
+                  </h3>
+                  <p class={`${textClass} text-center font-medium`}>
+                    {feature.description}
+                  </p>
+                </article>
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
+
+    <div class="embla__controls mt-6 flex justify-between items-center">
+      <div class="embla__buttons flex gap-4">
+        <button
+          class="embla__button embla__button--prev w-12 h-12 rounded-full bg-primary text-white hover:bg-primary/80 transition-colors disabled:opacity-30 cursor-pointer"
+          type="button"
+          aria-label="Anterior"
+        >
+          <svg
+            class="w-6 h-6 mx-auto"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button
+          class="embla__button embla__button--next w-12 h-12 rounded-full bg-primary text-white hover:bg-primary/80 transition-colors disabled:opacity-30 cursor-pointer"
+          type="button"
+          aria-label="Siguiente"
+        >
+          <svg
+            class="w-6 h-6 mx-auto"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="embla__dots flex gap-2"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import EmblaCarousel from "embla-carousel"
+  import Autoplay from "embla-carousel-autoplay"
+
+  const emblaNode = document.querySelector(".embla") as HTMLElement
+  if (!emblaNode) throw new Error("Embla carousel node not found")
+
+  const viewportNode = emblaNode.querySelector(
+    ".embla__viewport"
+  ) as HTMLElement
+  const prevBtn = emblaNode.querySelector(
+    ".embla__button--prev"
+  ) as HTMLButtonElement
+  const nextBtn = emblaNode.querySelector(
+    ".embla__button--next"
+  ) as HTMLButtonElement
+  const dotsNode = emblaNode.querySelector(".embla__dots") as HTMLElement
+
+  const emblaApi = EmblaCarousel(
+    viewportNode,
+    {
+      loop: true,
+      align: "start",
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  )
+
+  const updateButtons = () => {
+    if (prevBtn && nextBtn) {
+      prevBtn.disabled = !emblaApi.canScrollPrev()
+      nextBtn.disabled = !emblaApi.canScrollNext()
+    }
+  }
+
+  const generateDots = () => {
+    const scrollSnaps = emblaApi.scrollSnapList()
+    dotsNode.innerHTML = scrollSnaps
+      .map(
+        (_, index) =>
+          `<button class="embla__dot w-2 h-2 rounded-full bg-primary transition-all" data-index="${index}" aria-label="Ir a slide ${index + 1}"></button>`
+      )
+      .join("")
+
+    const dots = Array.from(
+      dotsNode.querySelectorAll(".embla__dot")
+    ) as HTMLButtonElement[]
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => emblaApi.scrollTo(index))
+    })
+  }
+
+  const updateDots = () => {
+    const dots = Array.from(
+      dotsNode.querySelectorAll(".embla__dot")
+    ) as HTMLElement[]
+    dots.forEach((dot, index) => {
+      if (index === emblaApi.selectedScrollSnap()) {
+        dot.classList.add("bg-primary", "w-8")
+        dot.classList.remove("bg-primary/30")
+      } else {
+        dot.classList.remove("bg-primary", "w-8")
+        dot.classList.add("bg-primary/30")
+      }
+    })
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", () => emblaApi.scrollPrev())
+  if (nextBtn) nextBtn.addEventListener("click", () => emblaApi.scrollNext())
+
+  emblaApi.on("select", () => {
+    updateButtons()
+    updateDots()
+  })
+
+  emblaApi.on("init", () => {
+    generateDots()
+    updateButtons()
+    updateDots()
+  })
+</script>

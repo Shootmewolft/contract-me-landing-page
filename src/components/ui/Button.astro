@@ -1,0 +1,59 @@
+---
+import { cn } from "@lib/utils"
+
+interface Props {
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "link"
+  size?: "sm" | "md" | "lg"
+  href?: string
+  type?: "button" | "submit" | "reset"
+  disabled?: boolean
+  class?: string
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  type = "button",
+  disabled = false,
+  class: className,
+  ...rest
+} = Astro.props
+
+const baseStyles =
+  "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
+
+const variants = {
+  primary: "bg-primary text-white hover:opacity-90 focus:ring-primary shadow-lg",
+  secondary: "bg-secondary text-white hover:opacity-90 focus:ring-secondary",
+  outline:
+    "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary",
+  ghost: "text-primary hover:bg-primary/10 focus:ring-primary",
+  link: "text-black underline-offset-4 hover:underline",
+}
+
+const sizes = {
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-5 py-2.5 text-base",
+  lg: "px-7 py-3.5 text-lg",
+}
+
+const classes = cn(
+  variant !== "link" && baseStyles,
+  variants[variant],
+  variant !== "link" && sizes[size],
+  className
+)
+
+const Tag = href ? "a" : "button"
+---
+
+<Tag
+  class={classes}
+  href={href}
+  type={!href ? type : undefined}
+  disabled={!href ? disabled : undefined}
+  {...rest}
+>
+  <slot />
+</Tag>

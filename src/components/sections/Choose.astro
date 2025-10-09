@@ -1,0 +1,234 @@
+---
+import Image from "astro/components/Image.astro"
+import Button from "../ui/Button.astro"
+
+const realEstateFeatures = [
+  "Control por analista: asigna responsables y gestiona la carga de trabajo fácilmente.",
+  "Seguimiento en tiempo real: conoce en qué etapa va cada proceso.",
+  "Ciclo completo del contrato: desde la redacción hasta la finalización.",
+  "Alertas y recordatorios automáticos: evita vencimientos o incumplimientos.",
+  "Reportes de gestión: visualiza métricas clave de tu operación.",
+]
+
+const individualFeatures = [
+  "Genera tu contrato en minutos: sin necesidad de experiencia jurídica.",
+  "Plantillas adaptadas a la ley colombiana: redactadas por abogados.",
+  "100% digital: crea, firma y guarda todo en un solo lugar.",
+  "Recordatorios inteligentes: no pierdas de vista fechas clave.",
+  "Seguridad y respaldo: tus contratos están protegidos y disponibles siempre.",
+]
+---
+
+<section class="max-w-7xl mx-auto relative" id="who">
+  <header class="text-center mb-8 sm:mb-12">
+    <h2
+      class="text-3xl lg:text-5xl text-primary font-bold mb-3 sm:mb-4"
+    >
+      Elige el plan perfecto para ti
+    </h2>
+    <p class="text-sm sm:text-base text-dark-100">
+      Soluciones diseñadas para cada tipo de usuario
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+    <!-- INMOBILIARIA -->
+    <article
+      class="pricing-card group relative bg-gradient-to-br from-primary to-primary/80 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-2 flex flex-col"
+    >
+      <div class="absolute top-4 right-4 sm:top-6 sm:right-6">
+        <Image
+          src="/real-state.svg"
+          alt="Imagen de una inmobiliaria"
+          class="w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 brightness-0 invert opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300"
+          width={200}
+          height={200}
+        />
+      </div>
+
+      <div class="relative z-10 flex flex-col h-full">
+        <div class="mb-4 sm:mb-6 pr-16 sm:pr-20">
+          <div
+            class="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs sm:text-sm font-medium mb-2 sm:mb-4"
+          >
+            Para equipos
+          </div>
+          <h3
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2"
+          >
+            Inmobiliarias
+          </h3>
+          <p class="text-white/80 text-sm sm:text-base lg:text-lg">
+            Optimiza tu gestión inmobiliaria
+          </p>
+        </div>
+
+        <div
+          class="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6"
+        >
+          <div class="flex items-baseline gap-2 mb-2">
+            <span
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+              >$4,999</span
+            >
+            <span class="text-white/60 text-sm sm:text-base lg:text-lg"
+              >COP</span
+            >
+          </div>
+          <p class="text-white/80 text-xs sm:text-sm">
+            Por contrato + firma digital
+          </p>
+          <div
+            class="mt-3 sm:mt-4 bg-secondary/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 sm:py-3"
+          >
+            <p class="text-white font-medium text-xs sm:text-sm">
+              🎁 Primer documento: <strong>¡GRATIS con firma incluida!</strong
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-grow">
+          {
+            realEstateFeatures.map((feature) => (
+              <div class="flex items-start gap-2 sm:gap-3">
+                <svg
+                  class="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="text-white text-sm sm:text-base leading-relaxed">
+                  {feature}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+
+        <Button
+          variant="secondary"
+          class="w-full text-base sm:text-lg py-2.5 sm:py-3 shadow-xl hover:shadow-2xl mt-auto"
+        >
+          Comenzar ahora
+        </Button>
+      </div>
+    </article>
+
+    <!-- PERSONA NATURAL -->
+    <article
+      class="pricing-card group relative bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-2xl hover:shadow-secondary/30 transition-all duration-300 hover:-translate-y-2 flex flex-col"
+    >
+      <div class="absolute top-4 right-4 sm:top-6 sm:right-6">
+        <Image
+          src="/human.svg"
+          alt="Imagen de una persona"
+          class="w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 brightness-0 invert opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300"
+          width={200}
+          height={200}
+        />
+      </div>
+
+      <div class="relative z-10 flex flex-col h-full">
+        <div class="mb-4 sm:mb-6 pr-16 sm:pr-20">
+          <div
+            class="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs sm:text-sm font-medium mb-2 sm:mb-4"
+          >
+            Para individuos
+          </div>
+          <h3
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2"
+          >
+            Persona Natural
+          </h3>
+          <p class="text-white/80 text-sm sm:text-base lg:text-lg">
+            Contrata fácil y sin complicaciones
+          </p>
+        </div>
+
+        <div
+          class="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6"
+        >
+          <div class="mb-3 sm:mb-4">
+            <div class="flex items-baseline gap-2 mb-1">
+              <span
+                class="text-xl sm:text-2xl lg:text-3xl font-bold text-white"
+                >Plan Básico</span
+              >
+            </div>
+            <p class="text-white/80 text-xs sm:text-sm">
+              • 1 agente: acceso básico
+            </p>
+          </div>
+          <div class="border-t border-white/20 pt-3 sm:pt-4">
+            <p class="text-white font-medium text-xs sm:text-sm mb-2">
+              Plan Premium incluye:
+            </p>
+            <ul class="text-white/80 text-xs sm:text-sm space-y-1">
+              <li>• Múltiples agentes</li>
+              <li>• Administración ilimitada de inmuebles</li>
+              <li>• Soporte prioritario</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-grow">
+          {
+            individualFeatures.map((feature) => (
+              <div class="flex items-start gap-2 sm:gap-3">
+                <svg
+                  class="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="text-white text-sm sm:text-base leading-relaxed">
+                  {feature}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+
+        <Button
+          variant="primary"
+          class="w-full text-base sm:text-lg py-2.5 sm:py-3 shadow-xl hover:shadow-2xl mt-auto"
+        >
+          Comenzar ahora
+        </Button>
+      </div>
+    </article>
+  </div>
+
+  <footer
+    class="flex flex-col sm:flex-row justify-center gap-4 items-center mt-8 sm:mt-12"
+  >
+    <Button variant="link" class="text-center" href="#contact">
+      ¿Necesitas ayuda para elegir? Habla con nuestro equipo
+    </Button>
+  </footer>
+
+  <Image
+    src="/me.svg"
+    alt="Fondo decorativo"
+    class="absolute opacity-5 -z-10 w-full h-full top-0 left-0 object-cover"
+    width={1920}
+    height={1080}
+  />
+</section>
+
+<style>
+  .pricing-card {
+    backdrop-filter: blur(10px);
+  }
+</style>

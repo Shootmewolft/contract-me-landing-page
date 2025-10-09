@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
-@theme {
-  --breakpoint-8xl: 120rem;
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-dark-100: var(--dark-100);
+  --breakpoint-xl-medium: 1440px;
+}
+
+:root {
+  --primary: #610d75;
+  --secondary: #db42be;
+  --accent: #fff;
+  --accent-100: #eaeaea;
+  --accent-200: #e7f0fb;
+  --dark-100: #3a3a3a;
 }

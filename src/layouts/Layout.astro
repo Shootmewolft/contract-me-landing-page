@@ -1,8 +1,8 @@
 ---
-import Footer from "../components/Footer.astro"
-import Header from "../components/Header.astro"
-import "../styles/global.css";
-import '@fontsource-variable/montserrat';
+import Footer from "@components/layout/Footer.astro"
+import Header from "@components/layout/Header.astro"
+import "../styles/global.css"
+import "@fontsource-variable/montserrat"
 ---
 
 <!doctype html>
@@ -15,7 +15,7 @@ import '@fontsource-variable/montserrat';
   </head>
   <body>
     <Header />
-    <main class="flex flex-col px-8 py-4 container mx-auto max-w-8xl">
+    <main class="flex flex-col gap-12 md:gap-16 px-8 xl:px-12 2xl:px-0 container mx-auto max-w-[90rem] min-h-dvh">
       <slot />
     </main>
     <Footer />
@@ -25,9 +25,12 @@ import '@fontsource-variable/montserrat';
 <style>
   html,
   body {
-		font-family: 'Montserrat Variable', sans-serif;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: #cbd5e1 transparent;
+    font-family: "Montserrat Variable", sans-serif;
     margin: 0;
-    width: 100%;
-    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
   }
 </style>

@@ -1,0 +1,330 @@
+---
+import Image from "astro/components/Image.astro"
+
+const QUESTIONS = [
+  {
+    question: "¿Qué es ContractMe?",
+    answer:
+      "Es una plataforma digital que te ayuda a crear, firmar y administrar contratos de arrendamiento. Todo en un solo lugar, sin complicaciones ni papeles.",
+  },
+  {
+    question: "¿Cómo funciona?",
+    answer:
+      "Creas tu perfil como arrendador o inmobiliaria, registras los datos del inmueble y del arrendatario, eliges una plantilla y generas tu contrato en minutos. Luego lo envías para firma digital y recibes el PDF firmado en tu panel, donde también puedes activar alertas y recordatorios automáticos.",
+  },
+  {
+    question: "¿Los contratos tienen validez legal?",
+    answer:
+      "Sí. Nuestros contratos están redactados por abogados y la firma digital cumple con la normativa colombiana, así que tienen plena validez jurídica.",
+  },
+  {
+    question: "¿Necesito ser abogado para usarlo?",
+    answer:
+      "No. ContractMe está pensado para que cualquier persona pueda crear contratos claros y seguros, sin conocimientos legales.",
+  },
+  {
+    question: "¿Cuánto cuesta?",
+    answer:
+      "Primer contrato: gratis con firma incluida. Contratos adicionales: $4.999 COP. Inmobiliarias: 1 agente con acceso básico, +1 agente requiere plan Premium.",
+  },
+  {
+    question: "¿Puedo administrar varios inmuebles?",
+    answer:
+      "Sí. Puedes registrar y gestionar todos los inmuebles que quieras, sin límite.",
+  },
+  {
+    question: "¿Recibo alertas y recordatorios?",
+    answer:
+      "Claro. La plataforma te avisa sobre renovaciones, vencimientos y pagos pendientes.",
+  },
+  {
+    question: "¿Sirve para inmobiliarias?",
+    answer:
+      "Sí. Ofrece control por agentes, reportes de gestión, seguimiento en tiempo real y administración ilimitada de inmuebles.",
+  },
+  {
+    question: "¿Puedo usarlo si solo arriendo una habitación?",
+    answer:
+      "Sí. ContractMe se adapta tanto a arriendos de vivienda completa como a habitaciones individuales.",
+  },
+  {
+    question: "¿Qué pasa con mi información?",
+    answer:
+      "Tus datos están protegidos. Cumplimos con la ley de protección de datos en Colombia para cuidar tu información y la de tus arrendatarios.",
+  },
+  {
+    question: "¿Qué pasa si mi arrendatario no quiere firmar digitalmente?",
+    answer:
+      "No hay problema. Puedes descargar el contrato en PDF y firmarlo de manera física. Aun así, recomendamos la firma digital porque es más rápida, segura y tiene plena validez legal.",
+  },
+  {
+    question: "¿Necesito instalar algún programa para usar ContractMe?",
+    answer:
+      "No. Funciona 100% en línea desde cualquier navegador o dispositivo móvil. Solo necesitas conexión a internet.",
+  },
+  {
+    question: "¿Puedo personalizar las cláusulas del contrato?",
+    answer:
+      "Sí. Las plantillas están pre-redactadas por abogados, pero puedes contactarte con nuestro soporte legal para indicarle tu necesidad y así, ajustar las cláusulas antes de enviar el contrato a firma. Esta opción puede generar cargos adicionales.",
+  },
+  {
+    question: "¿Puedo probar la plataforma antes de pagar?",
+    answer:
+      "Sí. Tu primer contrato con firma está incluido sin costo para que pruebes todas las funciones.",
+  },
+  {
+    question: "¿Qué pasa si tengo más de un arrendatario en el mismo inmueble?",
+    answer:
+      "Puedes agregar varios arrendatarios al mismo contrato y todos podrán firmar digitalmente.",
+  },
+  {
+    question: "¿ContractMe sirve solo para arrendamientos de vivienda?",
+    answer:
+      "No. También puedes usarlo para contratos de arriendo de locales comerciales, oficinas o bodegas.",
+  },
+  {
+    question: "¿La plataforma me ayuda si hay incumplimientos?",
+    answer:
+      "ContractMe no reemplaza el proceso judicial, pero sí te da soporte documental organizado y alertas que te permiten actuar a tiempo en caso de incumplimiento.",
+  },
+  {
+    question: "¿Qué tipo de reportes puedo generar?",
+    answer:
+      "Las inmobiliarias pueden acceder a reportes de gestión: contratos activos, renovaciones pendientes, vencimientos próximos y métricas de operación.",
+  },
+  {
+    question: "¿Hay soporte si tengo dudas al usar la plataforma?",
+    answer:
+      "Sí. Nuestro equipo está disponible vía WhatsApp y correo electrónico para ayudarte cuando lo necesites.",
+  },
+]
+
+const INITIAL_VISIBLE = 9
+---
+
+<section class="overflow-hidden relative max-w-7xl container mx-auto" id="faq">
+  <header class="text-center mb-16">
+    <h2 class="text-3xl lg:text-5xl text-primary font-bold mb-4">Preguntas Frecuentes</h2>
+    <p class="text-base text-gray-600 max-w-2xl mx-auto">
+      Sabemos que siempre surgen dudas, por eso reunimos aquí las preguntas
+      más frecuentes con sus respuestas rápidas y sencillas.
+    </p>
+  </header>
+  <Image
+    src="/me.svg"
+    alt="Parte del logo de Contract Me"
+    class="absolute opacity-10 top-0 -z-10 w-full h-full"
+    width={1920}
+    height={1080}
+  />
+  <div class="flex justify-center mb-16">
+    <div
+      class="relative w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] animate-float"
+    >
+      <div
+        class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 blur-2xl"
+      >
+      </div>
+      <div
+        class="relative w-full h-full rounded-full bg-gradient-to-br from-primary/5 to-secondary/5 p-12 shadow-2xl backdrop-blur-sm border-2 border-primary/20"
+      >
+        <Image
+          src="/questions.svg"
+          alt="Preguntas frecuentes"
+          width={400}
+          height={400}
+          class="w-full h-full object-contain drop-shadow-2xl"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="faq-grid"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto"
+    style="grid-auto-rows: auto;"
+  >
+    {
+      QUESTIONS.map((item, index) => (
+        <div
+          class={`faq-item group bg-white ${index >= INITIAL_VISIBLE ? "hidden" : ""}`}
+          style={`animation-delay: ${index * 0.05}s`}
+        >
+          <button
+            class="faq-btn w-full text-left bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary focus:outline-none focus:border-primary flex flex-col"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
+          >
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg transition-transform duration-300 group-hover:scale-110">
+                {index + 1}
+              </div>
+              <h3 class="flex-1 pr-6 text-base font-bold text-primary group-hover:text-secondary transition-colors duration-300">
+                {item.question}
+              </h3>
+              <svg
+                class="faq-icon flex-shrink-0 w-5 h-5 text-primary/40 transition-all duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div
+              id={`faq-answer-${index}`}
+              class="faq-answer overflow-hidden max-h-0 transition-all duration-500"
+            >
+              <p class="text-sm text-gray-600 leading-relaxed pt-3 mt-3 border-t border-gray-200">
+                {item.answer}
+              </p>
+            </div>
+          </button>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="flex justify-center mt-12">
+    <button
+      id="toggle-btn"
+      class="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold text-base rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/30 cursor-pointer"
+      aria-expanded="false"
+    >
+      <span id="toggle-text">Ver más preguntas</span>
+      <svg
+        id="toggle-icon"
+        class="w-5 h-5 transition-transform duration-300"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .faq-accordion-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .faq-hidden {
+    display: none;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--secondary);
+  }
+
+  .faq-item.active .faq-btn {
+    border-color: var(--primary);
+    background: linear-gradient(
+      to bottom right,
+      rgba(97, 13, 117, 0.02),
+      rgba(219, 66, 190, 0.02)
+    );
+  }
+</style>
+
+<script>
+  const $ = <T extends Element>(sel: string) => document.querySelector<T>(sel)
+  const $$ = <T extends Element>(sel: string) =>
+    document.querySelectorAll<T>(sel)
+
+  const INITIAL_VISIBLE = 9
+
+  const toggleFAQ = (item: Element | null) => {
+    if (!item) return
+
+    const isActive = item.classList.contains("active")
+    $$(".faq-item").forEach((i) => i.classList.remove("active"))
+
+    if (!isActive) {
+      item.classList.add("active")
+    }
+  }
+
+  const updateToggleButton = (isExpanded: boolean) => {
+    const text = $<HTMLElement>("#toggle-text")
+    const icon = $<HTMLElement>("#toggle-icon")
+
+    if (!text || !icon) return
+
+    text.textContent = isExpanded ? "Ver menos preguntas" : "Ver más preguntas"
+    icon.style.transform = isExpanded ? "rotate(180deg)" : "rotate(0deg)"
+  }
+
+  const toggleShowMore = () => {
+    const allItems = $$(".faq-item")
+    const hiddenItems = $$(".faq-item.hidden")
+    const isExpanded = hiddenItems.length === 0
+    if (!isExpanded) {
+      hiddenItems.forEach((item, i) => {
+        setTimeout(() => item.classList.remove("hidden"), i * 50)
+      })
+      updateToggleButton(!isExpanded)
+      return
+    }
+
+    allItems.forEach((item, i) => {
+      if (i >= INITIAL_VISIBLE) {
+        item.classList.add("hidden")
+      }
+    })
+    $("#faq")?.scrollIntoView({ behavior: "smooth", block: "start" })
+
+    updateToggleButton(!isExpanded)
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    $$(".faq-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        toggleFAQ(btn.closest(".faq-item"))
+      })
+    })
+
+    $("#toggle-btn")?.addEventListener("click", toggleShowMore)
+  })
+</script>
