@@ -348,7 +348,7 @@ import Button from "@components/ui/Button.astro"
 
     try {
       const formData = new FormData(form)
-      // await fetch('/api/contact', { method: 'POST', body: formData });
+      await fetch('https://api.contractme.cloud/contact', { method: 'POST', body: formData });
 
       showMessage(
         "¡Mensaje enviado con éxito! Te responderemos pronto.",
