@@ -1,29 +1,27 @@
 ---
-import Image from "astro/components/Image.astro"
-import Button from "../ui/Button.astro"
+import Image from 'astro/components/Image.astro';
+import Button from '../ui/Button.astro';
 
 const realEstateFeatures = [
-  "Control por analista: asigna responsables y gestiona la carga de trabajo fácilmente.",
-  "Seguimiento en tiempo real: conoce en qué etapa va cada proceso.",
-  "Ciclo completo del contrato: desde la redacción hasta la finalización.",
-  "Alertas y recordatorios automáticos: evita vencimientos o incumplimientos.",
-  "Reportes de gestión: visualiza métricas clave de tu operación.",
-]
+  'Control por analista: asigna responsables y gestiona la carga de trabajo fácilmente.',
+  'Seguimiento en tiempo real: conoce en qué etapa va cada proceso.',
+  'Ciclo completo del contrato: desde la redacción hasta la finalización.',
+  'Alertas y recordatorios automáticos: evita vencimientos o incumplimientos.',
+  'Reportes de gestión: visualiza métricas clave de tu operación.',
+];
 
 const individualFeatures = [
-  "Genera tu contrato en minutos: sin necesidad de experiencia jurídica.",
-  "Plantillas adaptadas a la ley colombiana: redactadas por abogados.",
-  "100% digital: crea, firma y guarda todo en un solo lugar.",
-  "Recordatorios inteligentes: no pierdas de vista fechas clave.",
-  "Seguridad y respaldo: tus contratos están protegidos y disponibles siempre.",
-]
+  'Genera tu contrato en minutos: sin necesidad de experiencia jurídica.',
+  'Plantillas adaptadas a la ley colombiana: redactadas por abogados.',
+  '100% digital: crea, firma y guarda todo en un solo lugar.',
+  'Recordatorios inteligentes: no pierdas de vista fechas clave.',
+  'Seguridad y respaldo: tus contratos están protegidos y disponibles siempre.',
+];
 ---
 
 <section class="max-w-7xl mx-auto relative" id="who">
   <header class="text-center mb-8 sm:mb-12">
-    <h2
-      class="text-3xl lg:text-5xl text-primary font-bold mb-3 sm:mb-4"
-    >
+    <h2 class="text-3xl lg:text-5xl text-primary font-bold mb-3 sm:mb-4">
       Elige el plan perfecto para ti
     </h2>
     <p class="text-sm sm:text-base text-dark-100">
@@ -67,8 +65,7 @@ const individualFeatures = [
           class="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6"
         >
           <div class="flex items-baseline gap-2 mb-2">
-            <span
-              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
               >$4,999</span
             >
             <span class="text-white/60 text-sm sm:text-base lg:text-lg"
@@ -82,8 +79,7 @@ const individualFeatures = [
             class="mt-3 sm:mt-4 bg-secondary/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 sm:py-3"
           >
             <p class="text-white font-medium text-xs sm:text-sm">
-              🎁 Primer documento: <strong>¡GRATIS con firma incluida!</strong
-              >
+              🎁 Primer documento: <strong>¡GRATIS con firma incluida!</strong>
             </p>
           </div>
         </div>
@@ -114,6 +110,7 @@ const individualFeatures = [
         <Button
           variant="secondary"
           class="w-full text-base sm:text-lg py-2.5 sm:py-3 shadow-xl hover:shadow-2xl mt-auto"
+          href={`${import.meta.env.PUBLIC_APP_URL}/ingreso`}
         >
           Comenzar ahora
         </Button>
@@ -156,8 +153,7 @@ const individualFeatures = [
         >
           <div class="mb-3 sm:mb-4">
             <div class="flex items-baseline gap-2 mb-1">
-              <span
-                class="text-xl sm:text-2xl lg:text-3xl font-bold text-white"
+              <span class="text-xl sm:text-2xl lg:text-3xl font-bold text-white"
                 >Plan Básico</span
               >
             </div>
@@ -203,20 +199,13 @@ const individualFeatures = [
         <Button
           variant="primary"
           class="w-full text-base sm:text-lg py-2.5 sm:py-3 shadow-xl hover:shadow-2xl mt-auto"
+          href={`${import.meta.env.PUBLIC_APP_URL}/ingreso`}
         >
           Comenzar ahora
         </Button>
       </div>
     </article>
   </div>
-
-  <footer
-    class="flex flex-col sm:flex-row justify-center gap-4 items-center mt-8 sm:mt-12"
-  >
-    <Button variant="link" class="text-center" href="#contact">
-      ¿Necesitas ayuda para elegir? Habla con nuestro equipo
-    </Button>
-  </footer>
 
   <Image
     src="/me.svg"

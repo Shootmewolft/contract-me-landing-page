@@ -1,6 +1,6 @@
 ---
-import Image from "astro/components/Image.astro"
-import Button from "../ui/Button.astro"
+import Image from 'astro/components/Image.astro';
+import Button from '../ui/Button.astro';
 ---
 
 <header
@@ -10,10 +10,7 @@ import Button from "../ui/Button.astro"
   <div
     class="flex items-center justify-between max-w-[90rem] py-3 px-8 xl:px-12 2xl:px-0 container mx-auto"
   >
-    <a
-      href="#home"
-      class="transition-transform hover:scale-105 duration-300"
-    >
+    <a href="#home" class="transition-transform hover:scale-105 duration-300">
       <Image
         src="/logo.svg"
         alt="Logo de Contract Me"
@@ -31,38 +28,46 @@ import Button from "../ui/Button.astro"
           <a
             href="#home"
             class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white transition-all duration-300"
-            >Inicio</a>
+            >Inicio</a
+          >
         </li>
         <li>
           <a
             href="#why"
             class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white transition-all duration-300"
-            >¿Por qué?</a>
+            >¿Por qué?</a
+          >
         </li>
         <li>
           <a
             href="#how"
             class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white transition-all duration-300"
-            >¿Cómo funciona?</a>
+            >¿Cómo funciona?</a
+          >
         </li>
         <li>
           <a
             href="#who"
             class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white transition-all duration-300"
-            >¿Qué eres?</a>
+            >¿Qué eres?</a
+          >
         </li>
         <li>
           <a
             href="#faq"
             class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white transition-all duration-300"
-            >FAQ</a>
+            >FAQ</a
+          >
         </li>
       </ul>
     </nav>
 
     <div class="flex items-center gap-3">
       <div class="hidden sm:block">
-        <Button href="https://www.contractme.cloud" variant="primary">
+        <Button
+          href={`${import.meta.env.PUBLIC_APP_URL}/ingreso`}
+          variant="primary"
+        >
           Comencemos
         </Button>
       </div>
@@ -215,7 +220,7 @@ import Button from "../ui/Button.astro"
 
       <div class="pt-4 sm:hidden">
         <Button
-          href="https://www.contractme.cloud"
+          href={`${import.meta.env.PUBLIC_APP_URL}/ingreso`}
           variant="primary"
           class="w-full justify-center text-sm"
         >
@@ -244,85 +249,85 @@ import Button from "../ui/Button.astro"
 </style>
 
 <script>
-  const header = document.getElementById("header")
-  const mobileMenuBtn = document.getElementById("mobile-menu-btn")
-  const mobileMenu = document.getElementById("mobile-menu")
-  const menuIcon = document.getElementById("menu-icon")
-  const closeIcon = document.getElementById("close-icon")
-  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link")
+  const header = document.getElementById('header');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   const handleScroll = () => {
-    if (!header) return
+    if (!header) return;
 
     if (window.scrollY > 10) {
-      header.classList.add("shadow-md", "border-gray-200")
+      header.classList.add('shadow-md', 'border-gray-200');
     } else {
-      header.classList.remove("shadow-md", "border-gray-200")
+      header.classList.remove('shadow-md', 'border-gray-200');
     }
-  }
+  };
 
   const toggleMobileMenu = () => {
-    if (!mobileMenu || !menuIcon || !closeIcon || !mobileMenuBtn) return
+    if (!mobileMenu || !menuIcon || !closeIcon || !mobileMenuBtn) return;
 
-    const isOpen = mobileMenu.classList.contains("open")
+    const isOpen = mobileMenu.classList.contains('open');
 
     if (isOpen) {
-      mobileMenu.classList.remove("open")
-      menuIcon.classList.remove("hidden")
-      closeIcon.classList.add("hidden")
-      mobileMenuBtn.setAttribute("aria-expanded", "false")
+      mobileMenu.classList.remove('open');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
     } else {
-      mobileMenu.classList.add("open")
-      menuIcon.classList.add("hidden")
-      closeIcon.classList.remove("hidden")
-      mobileMenuBtn.setAttribute("aria-expanded", "true")
+      mobileMenu.classList.add('open');
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
     }
-  }
+  };
 
   const closeMobileMenu = () => {
-    if (!mobileMenu || !menuIcon || !closeIcon || !mobileMenuBtn) return
+    if (!mobileMenu || !menuIcon || !closeIcon || !mobileMenuBtn) return;
 
-    mobileMenu.classList.remove("open")
-    menuIcon.classList.remove("hidden")
-    closeIcon.classList.add("hidden")
-    mobileMenuBtn.setAttribute("aria-expanded", "false")
-  }
+    mobileMenu.classList.remove('open');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+  };
 
   const setActiveLink = () => {
-    const sections = document.querySelectorAll("section[id]")
-    const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link")
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-    let currentSection = ""
+    let currentSection = '';
 
     sections.forEach((section) => {
-      const htmlSection = section as HTMLElement
-      const sectionTop = htmlSection.offsetTop
-      const sectionHeight = htmlSection.clientHeight
+      const htmlSection = section as HTMLElement;
+      const sectionTop = htmlSection.offsetTop;
+      const sectionHeight = htmlSection.clientHeight;
       if (window.scrollY >= sectionTop - 100) {
-        currentSection = section.getAttribute("id") || ""
+        currentSection = section.getAttribute('id') || '';
       }
-    })
+    });
 
     navLinks.forEach((link) => {
-      link.classList.remove("active")
-      if (link.getAttribute("href") === `#${currentSection}`) {
-        link.classList.add("active")
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
       }
-    })
-  }
+    });
+  };
 
-  window.addEventListener("scroll", () => {
-    handleScroll()
-    setActiveLink()
-  })
+  window.addEventListener('scroll', () => {
+    handleScroll();
+    setActiveLink();
+  });
 
-  mobileMenuBtn?.addEventListener("click", toggleMobileMenu)
+  mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
 
   mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      setTimeout(closeMobileMenu, 300)
-    })
-  })
+    link.addEventListener('click', () => {
+      setTimeout(closeMobileMenu, 300);
+    });
+  });
 
-  document.addEventListener("DOMContentLoaded", setActiveLink)
+  document.addEventListener('DOMContentLoaded', setActiveLink);
 </script>

@@ -1,113 +1,115 @@
 ---
-import Image from "astro/components/Image.astro"
+import Image from 'astro/components/Image.astro';
 
 const QUESTIONS = [
   {
-    question: "¿Qué es ContractMe?",
+    question: '¿Qué es ContractMe?',
     answer:
-      "Es una plataforma digital que te ayuda a crear, firmar y administrar contratos de arrendamiento. Todo en un solo lugar, sin complicaciones ni papeles.",
+      'Es una plataforma digital que te ayuda a crear, firmar y administrar contratos de arrendamiento. Todo en un solo lugar, sin complicaciones ni papeles.',
   },
   {
-    question: "¿Cómo funciona?",
+    question: '¿Cómo funciona?',
     answer:
-      "Creas tu perfil como arrendador o inmobiliaria, registras los datos del inmueble y del arrendatario, eliges una plantilla y generas tu contrato en minutos. Luego lo envías para firma digital y recibes el PDF firmado en tu panel, donde también puedes activar alertas y recordatorios automáticos.",
+      'Creas tu perfil como arrendador o inmobiliaria, registras los datos del inmueble y del arrendatario, eliges una plantilla y generas tu contrato en minutos. Luego lo envías para firma digital y recibes el PDF firmado en tu panel, donde también puedes activar alertas y recordatorios automáticos.',
   },
   {
-    question: "¿Los contratos tienen validez legal?",
+    question: '¿Los contratos tienen validez legal?',
     answer:
-      "Sí. Nuestros contratos están redactados por abogados y la firma digital cumple con la normativa colombiana, así que tienen plena validez jurídica.",
+      'Sí. Nuestros contratos están redactados por abogados y la firma digital cumple con la normativa colombiana, así que tienen plena validez jurídica.',
   },
   {
-    question: "¿Necesito ser abogado para usarlo?",
+    question: '¿Necesito ser abogado para usarlo?',
     answer:
-      "No. ContractMe está pensado para que cualquier persona pueda crear contratos claros y seguros, sin conocimientos legales.",
+      'No. ContractMe está pensado para que cualquier persona pueda crear contratos claros y seguros, sin conocimientos legales.',
   },
   {
-    question: "¿Cuánto cuesta?",
+    question: '¿Cuánto cuesta?',
     answer:
-      "Primer contrato: gratis con firma incluida. Contratos adicionales: $4.999 COP. Inmobiliarias: 1 agente con acceso básico, +1 agente requiere plan Premium.",
+      'Primer contrato: gratis con firma incluida. Contratos adicionales: $4.999 COP. Inmobiliarias: 1 agente con acceso básico, +1 agente requiere plan Premium.',
   },
   {
-    question: "¿Puedo administrar varios inmuebles?",
+    question: '¿Puedo administrar varios inmuebles?',
     answer:
-      "Sí. Puedes registrar y gestionar todos los inmuebles que quieras, sin límite.",
+      'Sí. Puedes registrar y gestionar todos los inmuebles que quieras, sin límite.',
   },
   {
-    question: "¿Recibo alertas y recordatorios?",
+    question: '¿Recibo alertas y recordatorios?',
     answer:
-      "Claro. La plataforma te avisa sobre renovaciones, vencimientos y pagos pendientes.",
+      'Claro. La plataforma te avisa sobre renovaciones, vencimientos y pagos pendientes.',
   },
   {
-    question: "¿Sirve para inmobiliarias?",
+    question: '¿Sirve para inmobiliarias?',
     answer:
-      "Sí. Ofrece control por agentes, reportes de gestión, seguimiento en tiempo real y administración ilimitada de inmuebles.",
+      'Sí. Ofrece control por agentes, reportes de gestión, seguimiento en tiempo real y administración ilimitada de inmuebles.',
   },
   {
-    question: "¿Puedo usarlo si solo arriendo una habitación?",
+    question: '¿Puedo usarlo si solo arriendo una habitación?',
     answer:
-      "Sí. ContractMe se adapta tanto a arriendos de vivienda completa como a habitaciones individuales.",
+      'Sí. ContractMe se adapta tanto a arriendos de vivienda completa como a habitaciones individuales.',
   },
   {
-    question: "¿Qué pasa con mi información?",
+    question: '¿Qué pasa con mi información?',
     answer:
-      "Tus datos están protegidos. Cumplimos con la ley de protección de datos en Colombia para cuidar tu información y la de tus arrendatarios.",
+      'Tus datos están protegidos. Cumplimos con la ley de protección de datos en Colombia para cuidar tu información y la de tus arrendatarios.',
   },
   {
-    question: "¿Qué pasa si mi arrendatario no quiere firmar digitalmente?",
+    question: '¿Qué pasa si mi arrendatario no quiere firmar digitalmente?',
     answer:
-      "No hay problema. Puedes descargar el contrato en PDF y firmarlo de manera física. Aun así, recomendamos la firma digital porque es más rápida, segura y tiene plena validez legal.",
+      'No hay problema. Puedes descargar el contrato en PDF y firmarlo de manera física. Aun así, recomendamos la firma digital porque es más rápida, segura y tiene plena validez legal.',
   },
   {
-    question: "¿Necesito instalar algún programa para usar ContractMe?",
+    question: '¿Necesito instalar algún programa para usar ContractMe?',
     answer:
-      "No. Funciona 100% en línea desde cualquier navegador o dispositivo móvil. Solo necesitas conexión a internet.",
+      'No. Funciona 100% en línea desde cualquier navegador o dispositivo móvil. Solo necesitas conexión a internet.',
   },
   {
-    question: "¿Puedo personalizar las cláusulas del contrato?",
+    question: '¿Puedo personalizar las cláusulas del contrato?',
     answer:
-      "Sí. Las plantillas están pre-redactadas por abogados, pero puedes contactarte con nuestro soporte legal para indicarle tu necesidad y así, ajustar las cláusulas antes de enviar el contrato a firma. Esta opción puede generar cargos adicionales.",
+      'Sí. Las plantillas están pre-redactadas por abogados, pero puedes contactarte con nuestro soporte legal para indicarle tu necesidad y así, ajustar las cláusulas antes de enviar el contrato a firma. Esta opción puede generar cargos adicionales.',
   },
   {
-    question: "¿Puedo probar la plataforma antes de pagar?",
+    question: '¿Puedo probar la plataforma antes de pagar?',
     answer:
-      "Sí. Tu primer contrato con firma está incluido sin costo para que pruebes todas las funciones.",
+      'Sí. Tu primer contrato con firma está incluido sin costo para que pruebes todas las funciones.',
   },
   {
-    question: "¿Qué pasa si tengo más de un arrendatario en el mismo inmueble?",
+    question: '¿Qué pasa si tengo más de un arrendatario en el mismo inmueble?',
     answer:
-      "Puedes agregar varios arrendatarios al mismo contrato y todos podrán firmar digitalmente.",
+      'Puedes agregar varios arrendatarios al mismo contrato y todos podrán firmar digitalmente.',
   },
   {
-    question: "¿ContractMe sirve solo para arrendamientos de vivienda?",
+    question: '¿ContractMe sirve solo para arrendamientos de vivienda?',
     answer:
-      "No. También puedes usarlo para contratos de arriendo de locales comerciales, oficinas o bodegas.",
+      'No. También puedes usarlo para contratos de arriendo de locales comerciales, oficinas o bodegas.',
   },
   {
-    question: "¿La plataforma me ayuda si hay incumplimientos?",
+    question: '¿La plataforma me ayuda si hay incumplimientos?',
     answer:
-      "ContractMe no reemplaza el proceso judicial, pero sí te da soporte documental organizado y alertas que te permiten actuar a tiempo en caso de incumplimiento.",
+      'ContractMe no reemplaza el proceso judicial, pero sí te da soporte documental organizado y alertas que te permiten actuar a tiempo en caso de incumplimiento.',
   },
   {
-    question: "¿Qué tipo de reportes puedo generar?",
+    question: '¿Qué tipo de reportes puedo generar?',
     answer:
-      "Las inmobiliarias pueden acceder a reportes de gestión: contratos activos, renovaciones pendientes, vencimientos próximos y métricas de operación.",
+      'Las inmobiliarias pueden acceder a reportes de gestión: contratos activos, renovaciones pendientes, vencimientos próximos y métricas de operación.',
   },
   {
-    question: "¿Hay soporte si tengo dudas al usar la plataforma?",
+    question: '¿Hay soporte si tengo dudas al usar la plataforma?',
     answer:
-      "Sí. Nuestro equipo está disponible vía WhatsApp y correo electrónico para ayudarte cuando lo necesites.",
+      'Sí. Nuestro equipo está disponible vía WhatsApp y correo electrónico para ayudarte cuando lo necesites.',
   },
-]
+];
 
-const INITIAL_VISIBLE = 9
+const INITIAL_VISIBLE = 9;
 ---
 
 <section class="overflow-hidden relative max-w-7xl container mx-auto" id="faq">
   <header class="text-center mb-16">
-    <h2 class="text-3xl lg:text-5xl text-primary font-bold mb-4">Preguntas Frecuentes</h2>
+    <h2 class="text-3xl lg:text-5xl text-primary font-bold mb-4">
+      Preguntas Frecuentes
+    </h2>
     <p class="text-base text-gray-600 max-w-2xl mx-auto">
-      Sabemos que siempre surgen dudas, por eso reunimos aquí las preguntas
-      más frecuentes con sus respuestas rápidas y sencillas.
+      Sabemos que siempre surgen dudas, por eso reunimos aquí las preguntas más
+      frecuentes con sus respuestas rápidas y sencillas.
     </p>
   </header>
   <Image
@@ -147,7 +149,7 @@ const INITIAL_VISIBLE = 9
     {
       QUESTIONS.map((item, index) => (
         <div
-          class={`faq-item group bg-white ${index >= INITIAL_VISIBLE ? "hidden" : ""}`}
+          class={`faq-item group bg-white ${index >= INITIAL_VISIBLE ? 'hidden' : ''}`}
           style={`animation-delay: ${index * 0.05}s`}
         >
           <button
@@ -266,65 +268,93 @@ const INITIAL_VISIBLE = 9
       rgba(219, 66, 190, 0.02)
     );
   }
+
+  .faq-item.hidden {
+    display: none;
+  }
+
+  .faq-item.will-show {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .faq-item.fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
 </style>
 
 <script>
-  const $ = <T extends Element>(sel: string) => document.querySelector<T>(sel)
+  const $ = <T extends Element>(sel: string) => document.querySelector<T>(sel);
   const $$ = <T extends Element>(sel: string) =>
-    document.querySelectorAll<T>(sel)
+    document.querySelectorAll<T>(sel);
 
-  const INITIAL_VISIBLE = 9
+  const INITIAL_VISIBLE = 9;
 
   const toggleFAQ = (item: Element | null) => {
-    if (!item) return
+    if (!item) return;
 
-    const isActive = item.classList.contains("active")
-    $$(".faq-item").forEach((i) => i.classList.remove("active"))
+    const isActive = item.classList.contains('active');
+    $$('.faq-item').forEach((i) => i.classList.remove('active'));
 
     if (!isActive) {
-      item.classList.add("active")
+      item.classList.add('active');
     }
-  }
+  };
 
   const updateToggleButton = (isExpanded: boolean) => {
-    const text = $<HTMLElement>("#toggle-text")
-    const icon = $<HTMLElement>("#toggle-icon")
+    const text = $<HTMLElement>('#toggle-text');
+    const icon = $<HTMLElement>('#toggle-icon');
 
-    if (!text || !icon) return
+    if (!text || !icon) return;
 
-    text.textContent = isExpanded ? "Ver menos preguntas" : "Ver más preguntas"
-    icon.style.transform = isExpanded ? "rotate(180deg)" : "rotate(0deg)"
-  }
+    text.textContent = isExpanded ? 'Ver menos preguntas' : 'Ver más preguntas';
+    icon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+  };
 
   const toggleShowMore = () => {
-    const allItems = $$(".faq-item")
-    const hiddenItems = $$(".faq-item.hidden")
-    const isExpanded = hiddenItems.length === 0
+    const allItems = $$('.faq-item');
+    const hiddenItems = $$('.faq-item.hidden');
+    const isExpanded = hiddenItems.length === 0;
+
     if (!isExpanded) {
       hiddenItems.forEach((item, i) => {
-        setTimeout(() => item.classList.remove("hidden"), i * 50)
-      })
-      updateToggleButton(!isExpanded)
-      return
+        setTimeout(() => {
+          item.classList.add('will-show');
+          item.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              item.classList.add('fade-in');
+            });
+          });
+        }, i * 100);
+      });
+      updateToggleButton(!isExpanded);
+      return;
     }
 
     allItems.forEach((item, i) => {
       if (i >= INITIAL_VISIBLE) {
-        item.classList.add("hidden")
+        item.classList.remove('fade-in', 'will-show');
+        setTimeout(() => {
+          item.classList.add('hidden');
+        }, 50);
       }
-    })
-    $("#faq")?.scrollIntoView({ behavior: "smooth", block: "start" })
+    });
 
-    updateToggleButton(!isExpanded)
-  }
+    setTimeout(() => {
+      $('#faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    $$(".faq-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        toggleFAQ(btn.closest(".faq-item"))
-      })
-    })
+    updateToggleButton(!isExpanded);
+  };
 
-    $("#toggle-btn")?.addEventListener("click", toggleShowMore)
-  })
+  document.addEventListener('DOMContentLoaded', () => {
+    $$('.faq-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        toggleFAQ(btn.closest('.faq-item'));
+      });
+    });
+
+    $('#toggle-btn')?.addEventListener('click', toggleShowMore);
+  });
 </script>

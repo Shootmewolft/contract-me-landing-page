@@ -1,8 +1,8 @@
 ---
-import Button from "@components/ui/Button.astro"
+import Button from '@components/ui/Button.astro';
 ---
 
-<section class="pb-12" id="contacto">
+<section class="pb-12" id="contact">
   <header class="text-center mb-8 md:mb-16">
     <h2 class="text-3xl lg:text-5xl text-primary font-bold mb-4">
       ¿Tienes dudas? Contáctanos
@@ -48,10 +48,10 @@ import Button from "@components/ui/Button.astro"
             <div>
               <p class="text-sm text-white/70 mb-1">Email</p>
               <a
-                href="mailto:contacto@contractme.com"
+                href="mailto:contractme395@gmail.com"
                 class="text-sm md:text-lg font-semibold hover:text-white/80 transition-colors"
               >
-                contacto@contractme.com
+                contractme395@gmail.com
               </a>
             </div>
           </div>
@@ -73,7 +73,7 @@ import Button from "@components/ui/Button.astro"
                 class="text-sm md:text-lg font-semibold hover:text-white/80 transition-colors"
                 target="_blank"
               >
-                +57 300 123 4567
+                +57 302 2738347
               </a>
             </div>
           </div>
@@ -109,18 +109,7 @@ import Button from "@components/ui/Button.astro"
           </p>
           <div class="flex gap-4 mt-4">
             <a
-              href="#"
-              class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all hover:scale-110"
-              aria-label="Facebook"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="#"
+              href="https://www.instagram.com/contractme.ai/"
               class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all hover:scale-110"
               aria-label="Instagram"
             >
@@ -131,7 +120,7 @@ import Button from "@components/ui/Button.astro"
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/company/contractme.ai/"
               class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all hover:scale-110"
               aria-label="LinkedIn"
             >
@@ -146,7 +135,9 @@ import Button from "@components/ui/Button.astro"
       </div>
     </div>
 
-    <div class="bg-white rounded-3xl shadow-2xl p-5 md:p-8 border-2 border-gray-100">
+    <div
+      class="bg-white rounded-3xl shadow-2xl p-5 md:p-8 border-2 border-gray-100"
+    >
       <form id="contact-form" class="space-y-6">
         <div class="form-group">
           <label
@@ -235,7 +226,23 @@ import Button from "@components/ui/Button.astro"
             class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors text-gray-800 placeholder:text-gray-400 resize-none"
             placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
         </div>
-
+        <div>
+          <h3 class="text-primary text-base font-semibold">
+            Autorización para el tratamiento de datos personales.
+          </h3>
+          <p class="text-sm text-gray-600">
+            Autorizo de manera previa, expresa e informada a ContractMe para
+            recolectar, almacenar y utilizar mis datos personales con la
+            finalidad de contactarme, enviar información relacionada con los
+            servicios y cumplir con las obligaciones legales aplicables. Declaro
+            que conozco mis derechos de acceso, corrección, supresión y
+            revocatoria, y que he leído la <a
+              href={`${import.meta.env.PUBLIC_CLOUDFRONT_URL}/landing-page/politica_tratamiento_datos_personales.pdf`}
+              class="text-primary font-semibold hover:text-secondary transition-colors"
+              >política de tratamiento de datos personales</a
+            >.
+          </p>
+        </div>
         <div class="flex items-start gap-3">
           <input
             type="checkbox"
@@ -245,11 +252,8 @@ import Button from "@components/ui/Button.astro"
             class="mt-1 w-5 h-5 rounded border-2 border-gray-300 text-primary focus:ring-2 focus:ring-primary/30"
           />
           <label for="privacy" class="text-sm text-gray-600">
-            Acepto la <a
-              href="#"
-              class="text-primary font-semibold hover:text-secondary transition-colors"
-              >política de privacidad</a
-            > y el tratamiento de mis datos personales.
+            Acepto el tratamiento de mis datos personales conforme a lo
+            anterior.
           </label>
         </div>
 
@@ -315,53 +319,53 @@ import Button from "@components/ui/Button.astro"
 </style>
 
 <script>
-  const form = document.getElementById("contact-form") as HTMLFormElement
-  const submitText = document.getElementById("submit-text")
-  const formMessage = document.getElementById("form-message")
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitText = document.getElementById('submit-text');
+  const formMessage = document.getElementById('form-message');
 
-  const showMessage = (message: string, type: "success" | "error") => {
-    if (!formMessage) return
+  const showMessage = (message: string, type: 'success' | 'error') => {
+    if (!formMessage) return;
 
-    formMessage.textContent = message
-    formMessage.className = `${type} rounded-xl p-4 text-sm font-medium`
-    formMessage.classList.remove("hidden")
+    formMessage.textContent = message;
+    formMessage.className = `${type} rounded-xl p-4 text-sm font-medium`;
+    formMessage.classList.remove('hidden');
 
-    setTimeout(() => formMessage.classList.add("hidden"), 5000)
-  }
+    setTimeout(() => formMessage.classList.add('hidden'), 5000);
+  };
 
   const setLoading = (isLoading: boolean) => {
-    if (!submitText || !form) return
+    if (!submitText || !form) return;
 
-    submitText.textContent = isLoading ? "Enviando..." : "Enviar mensaje"
-    form.classList.toggle("loading", isLoading)
+    submitText.textContent = isLoading ? 'Enviando...' : 'Enviar mensaje';
+    form.classList.toggle('loading', isLoading);
 
     const submitBtn = form.querySelector(
       'button[type="submit"]'
-    ) as HTMLButtonElement
-    if (submitBtn) submitBtn.disabled = isLoading
-  }
+    ) as HTMLButtonElement;
+    if (submitBtn) submitBtn.disabled = isLoading;
+  };
 
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault()
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    setLoading(true)
+    setLoading(true);
 
     try {
-      const formData = new FormData(form)
-      await fetch('https://api.contractme.cloud/contact', { method: 'POST', body: formData });
+      const formData = new FormData(form);
+      await fetch(import.meta.env.API_URL, { method: 'POST', body: formData });
 
       showMessage(
-        "¡Mensaje enviado con éxito! Te responderemos pronto.",
-        "success"
-      )
-      form.reset()
+        '¡Mensaje enviado con éxito! Te responderemos pronto.',
+        'success'
+      );
+      form.reset();
     } catch (error) {
       showMessage(
-        "Error al enviar el mensaje. Por favor, intenta nuevamente.",
-        "error"
-      )
+        'Error al enviar el mensaje. Por favor, intenta nuevamente.',
+        'error'
+      );
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  })
+  });
 </script>

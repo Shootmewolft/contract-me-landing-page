@@ -1,8 +1,9 @@
 ---
-import Footer from "@components/layout/Footer.astro"
-import Header from "@components/layout/Header.astro"
-import "../styles/global.css"
-import "@fontsource-variable/montserrat"
+import Footer from '@components/layout/Footer.astro';
+import Header from '@components/layout/Header.astro';
+import '../styles/global.css';
+import '@fontsource-variable/montserrat';
+import ScheduleButton from '../components/layout/ScheduleButton.astro';
 ---
 
 <!doctype html>
@@ -11,11 +12,27 @@ import "@fontsource-variable/montserrat"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="apple-mobile-web-app-title" content="Contract Me" />
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async></script>
+
     <title>Contract Me</title>
-  </head>
-  <body>
+  </head><body>
     <Header />
-    <main class="flex flex-col gap-12 md:gap-16 px-8 xl:px-12 2xl:px-0 container mx-auto max-w-[90rem] min-h-dvh">
+    <ScheduleButton />
+    <main
+      class="flex flex-col gap-12 md:gap-16 px-8 xl:px-12 2xl:px-0 container mx-auto max-w-[90rem] min-h-dvh"
+    >
       <slot />
     </main>
     <Footer />
@@ -28,7 +45,7 @@ import "@fontsource-variable/montserrat"
     scrollbar-width: thin;
     scroll-behavior: smooth;
     scrollbar-color: #cbd5e1 transparent;
-    font-family: "Montserrat Variable", sans-serif;
+    font-family: 'Montserrat Variable', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;

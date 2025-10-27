@@ -1,0 +1,90 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<Button
+  class="fixed z-50 bottom-4 right-4 shadow-lg"
+  id="schedule-demo-button"
+  variant="secondary"
+  data-calendly="open"
+>
+  Agendar una demo
+</Button>
+
+<script is:inline>
+  const CALENDLY_URL =
+    'https://calendly.com/alvaropedrozo07/30min?hide_gdpr_banner=1&locale=es';
+
+  function ensureCalendlyLoaded() {
+    return new Promise((resolve) => {
+      // Ya está disponible
+      if (
+        window.Calendly &&
+        typeof window.Calendly.initPopupWidget === 'function'
+      ) {
+        resolve();
+        return;
+      }
+
+      // ¿Existe ya el <script> de Calendly?
+      let existing = document.querySelector(
+        'script[src^="https://assets.calendly.com/assets/external/widget.js"]'
+      );
+      if (existing) {
+        // Si ya cargó, resuelve
+        if (existing.dataset.loaded === '1') {
+          resolve();
+          return;
+        }
+        // Si no, espera al load
+        existing.addEventListener('load', () => {
+          existing.dataset.loaded = '1';
+          resolve();
+        });
+        return;
+      }
+
+      // No existe: inyecta el script
+      const s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true;
+      s.onload = () => {
+        s.dataset.loaded = '1';
+        resolve();
+      };
+      document.head.appendChild(s);
+    });
+  }
+
+  function openCalendlyPopup(e) {
+    e?.preventDefault?.();
+    window.Calendly.initPopupWidget({
+      url: CALENDLY_URL,
+      hidden: {
+        utm_source: 'landing',
+        utm_medium: 'button',
+        utm_campaign: 'agendamiento',
+      },
+    });
+  }
+
+  async function handleClick(e) {
+    await ensureCalendlyLoaded();
+    openCalendlyPopup(e);
+  }
+
+  function attachHandlers() {
+    // Todos los triggers marcados con data-calendly="open"
+    const triggers = document.querySelectorAll('[data-calendly="open"]');
+    triggers.forEach((el) => {
+      el.removeEventListener('click', handleClick, false);
+      el.addEventListener('click', handleClick, false);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachHandlers);
+  } else {
+    attachHandlers();
+  }
+</script>
